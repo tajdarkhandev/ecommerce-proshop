@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import { erroMiddleWare } from "./middlewares/error.js";
 import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
 import cors from "cors";
 
 dotenv.config();
@@ -26,6 +27,7 @@ app.use(cookieParser());
 
 app.use("/api/v1", productRoutes);
 app.use("/api/v1", userRoutes);
+app.use("/api/v1/orders", orderRoutes);
 
 connectDB();
 app.use(erroMiddleWare);
